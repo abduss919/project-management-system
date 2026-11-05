@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Management System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="topbar">
+        <div class="logo">Project Management System</div>
+    </header>
+
+    <div class="container">
+        <!-- Stats Overview -->
+        <section class="stats-grid">
+            <div class="stat-card">
+                <span class="stat-title">Total Products</span>
+                <span class="stat-value" id="statTotalProducts">0</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-title">Total Categories</span>
+                <span class="stat-value" id="statTotalCategories">0</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-title">Total Quantity</span>
+                <span class="stat-value" id="statTotalQuantity">0</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-title">Total Stock Value</span>
+                <span class="stat-value" id="statTotalValue">₹0.00</span>
+            </div>
+            <div class="stat-card alert-card">
+                <span class="stat-title">Low Stock Alert</span>
+                <span class="stat-value" id="statLowStock">0</span>
+            </div>
+        </section>
+
+        <!-- Form -->
+        <section class="card form-card">
+            <h2 id="formHeading">Add New Product / Project</h2>
+            <form id="productForm">
+                <input type="hidden" id="productId">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="projectName">Product/Project Name *</label>
+                        <input type="text" id="projectName" placeholder="e.g. Wireless Mouse" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="category">Category *</label>
+                        <input type="text" id="category" placeholder="e.g. Electronics" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="price">Price (₹) *</label>
+                        <input type="number" id="price" step="0.01" min="0" placeholder="0.00" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="quantity">Quantity *</label>
+                        <input type="number" id="quantity" min="0" placeholder="0" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="reorderLevel">Reorder Level *</label>
+                        <input type="number" id="reorderLevel" min="0" placeholder="0" required>
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary" id="saveBtn">Save Product</button>
+                    <button type="button" class="btn btn-secondary" id="cancelBtn" style="display: none;">Cancel Edit</button>
+                </div>
+            </form>
+        </section>
+
+        <!-- Search & Filter Controls -->
+        <section class="controls-bar">
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Search by name...">
+            </div>
+            <div class="filter-box">
+                <select id="categoryFilter">
+                    <option value="All">All Categories</option>
+                </select>
+            </div>
+        </section>
+
+        <!-- Table -->
+        <section class="card">
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Product Name</th>
+                            <th>Category</th>
+                            <th>Price (₹)</th>
+                            <th>Quantity</th>
+                            <th>Reorder Level</th>
+                            <th>Total Value (₹)</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="productTableBody"></tbody>
+                </table>
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
